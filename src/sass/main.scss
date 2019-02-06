@@ -1,0 +1,69 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.cells {
+  background: #cccccc;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;  
+  align-content: center;
+
+  &__cell {
+    width: 100px;
+    height: 100px;
+    margin: 6px;
+    box-shadow: 2px 3px 8px 0px rgba(0,0,0,0.63);
+    background: #777777;
+    background-position: center;
+    background-size: contain;
+    transition: 0.5s;
+    border-radius: 50px;    
+
+    &:hover {
+      box-shadow: 0px 0px 12px 3px rgb(51, 27, 249);
+      opacity: 0.7;
+      position: relative;
+      background-color: rgb(51, 27, 249);          
+    }
+
+    &--charlizard {
+      background-image: url(../img/charlizard.png);      
+      background-color: #ffc299;
+      box-shadow: 2px 3px 8px 0px rgba(234,31,31,0.63);
+      border-radius: 5px;  
+    }
+
+    &--pikachu {
+      background-image: url(../img/pikachu.png);      
+      background-color: #ffff80;
+      box-shadow: 2px 3px 8px 0px rgba(71,72,0,0.50);
+      border-radius: 5px;  
+    }
+
+    &--squirtle {
+      background-image: url(../img/squirtle.png);      
+      background-color: #b3f0ff;
+      box-shadow: 2px 3px 8px 0px rgba(31,131,234,0.63);
+      border-radius: 5px;  
+    }
+
+    &--pidgey {
+      background-image: url(../img/pidgey.png);      
+      background-color: #f4edb3e0;
+      box-shadow: 2px 3px 8px 0px rgba(132,70,48,0.63);
+      border-radius: 5px;  
+    }
+
+     &--hightlight {
+      box-shadow: 0px 0px 12px 3px rgb(51, 27, 249);
+      opacity: 0.7;
+      position: relative;
+      background-color: rgb(51, 27, 249);
+    }
+  }
+}

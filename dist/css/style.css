@@ -1,0 +1,98 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.cells {
+  background: #cccccc;
+  height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+}
+
+.cells__cell {
+  width: 100px;
+  height: 100px;
+  margin: 6px;
+  -webkit-box-shadow: 2px 3px 8px 0px rgba(0, 0, 0, 0.63);
+  box-shadow: 2px 3px 8px 0px rgba(0, 0, 0, 0.63);
+  background: #777777;
+  background-position: center;
+  -webkit-background-size: contain;
+  background-size: contain;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+}
+
+.cells__cell:hover {
+  -webkit-box-shadow: 0px 0px 12px 3px #331bf9;
+  box-shadow: 0px 0px 12px 3px #331bf9;
+  opacity: 0.7;
+  position: relative;
+  background-color: #331bf9;
+}
+
+.cells__cell--charlizard {
+  background-image: url(../img/charlizard.png);
+  background-color: #ffc299;
+  -webkit-box-shadow: 2px 3px 8px 0px rgba(234, 31, 31, 0.63);
+  box-shadow: 2px 3px 8px 0px rgba(234, 31, 31, 0.63);
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.cells__cell--pikachu {
+  background-image: url(../img/pikachu.png);
+  background-color: #ffff80;
+  -webkit-box-shadow: 2px 3px 8px 0px rgba(71, 72, 0, 0.5);
+  box-shadow: 2px 3px 8px 0px rgba(71, 72, 0, 0.5);
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.cells__cell--squirtle {
+  background-image: url(../img/squirtle.png);
+  background-color: #b3f0ff;
+  -webkit-box-shadow: 2px 3px 8px 0px rgba(31, 131, 234, 0.63);
+  box-shadow: 2px 3px 8px 0px rgba(31, 131, 234, 0.63);
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.cells__cell--pidgey {
+  background-image: url(../img/pidgey.png);
+  background-color: #f4edb3e0;
+  -webkit-box-shadow: 2px 3px 8px 0px rgba(132, 70, 48, 0.63);
+  box-shadow: 2px 3px 8px 0px rgba(132, 70, 48, 0.63);
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.cells__cell--hightlight {
+  -webkit-box-shadow: 0px 0px 12px 3px #331bf9;
+  box-shadow: 0px 0px 12px 3px #331bf9;
+  opacity: 0.7;
+  position: relative;
+  background-color: #331bf9;
+}
