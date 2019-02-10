@@ -1,63 +1,68 @@
 let arr = [];
-let cells = document.querySelector(`.cells`);
-let hightlight = `cells__cell--hightlight`;
-let charlizard = `cells__cell--charlizard`; 
-let pikachu = `cells__cell--pikachu`;
-let squirtle = `cells__cell--squirtle`;
-let pidgey = `cells__cell--pidgey`;
+const cells = document.querySelector('.cells');
+const classNameHightlight = 'cells__cell--hightlight';
+const classNameFirstCell = 'cells__cell--charlizard';
+const classNameSecondCell = 'cells__cell--pikachu';
+const classNameThirdCell = 'cells__cell--squirtle';
+const classNameFourthCell = 'cells__cell--pidgey';
 
 function showHightlights(target) {
-  arr.forEach((elem, i) => elem.forEach((elem,j) => {      
-    if (elem ===  target) {      
-      let contain = elem.classList;
-      let classContain = ``;
+  [].forEach.call(arr,(elem, i) => [].forEach.call(elem,(elem,j) => {
+    if (elem === target) {
+      const contain = elem.classList;
+      let classContain = '';
 
-      if (contain.contains(charlizard)) { classContain = charlizard }
-      if (contain.contains(pikachu)) { classContain = pikachu }
-      if (contain.contains(squirtle)) { classContain = squirtle }
-      if (contain.contains(pidgey)) { classContain = pidgey }
-        
-      if (j < arr[i].length - 1 && arr[i][j + 1].classList.contains(classContain) && !arr[i][j + 1].classList.contains(hightlight)) {          
-        arr[i][j + 1].classList.add(hightlight);
+      if (contain.contains(classNameFirstCell)) { classContain = classNameFirstCell }
+      if (contain.contains(classNameSecondCell)) { classContain = classNameSecondCell }
+      if (contain.contains(classNameThirdCell)) { classContain = classNameThirdCell }
+      if (contain.contains(classNameFourthCell)) { classContain = classNameFourthCell }
+
+      if (j < arr[i].length - 1 && arr[i][j + 1].classList.contains(classContain) && !arr[i][j + 1].classList.contains(classNameHightlight)) {
+        arr[i][j + 1].classList.add(classNameHightlight);
         showHightlights(arr[i][j + 1]);
       }
 
-      if (j > 0 && arr[i][j - 1] && arr[i][j - 1].classList.contains(classContain) && !arr[i][j - 1].classList.contains(hightlight)) {
-        arr[i][j - 1].classList.add(hightlight);
+      if (j > 0 && arr[i][j - 1] && arr[i][j - 1].classList.contains(classContain) && !arr[i][j - 1].classList.contains(classNameHightlight)) {
+        arr[i][j - 1].classList.add(classNameHightlight);
         showHightlights(arr[i][j - 1]);
       }
 
-      if (i > 0 && arr[i - 1][j] && arr[i - 1][j].classList.contains(classContain) && !arr[i - 1][j].classList.contains(hightlight)) {
-        arr[i - 1][j].classList.add(hightlight);
+      if (i > 0 && arr[i - 1][j] && arr[i - 1][j].classList.contains(classContain) && !arr[i - 1][j].classList.contains(classNameHightlight)) {
+        arr[i - 1][j].classList.add(classNameHightlight);
         showHightlights(arr[i - 1][j]);
       }
 
       if(i < arr.length - 1  && j < arr[i + 1].length) {
-        if (arr[i + 1][j].classList.contains(classContain) && !arr[i + 1][j].classList.contains(hightlight)) {        
-          arr[i + 1][j].classList.add(hightlight);
+        if (arr[i + 1][j].classList.contains(classContain) && !arr[i + 1][j].classList.contains(classNameHightlight)) {
+          arr[i + 1][j].classList.add(classNameHightlight);
           showHightlights(arr[i + 1][j]);
-        }        
-      }      
+        }
+      }
     }
   }));
-} 
+}
 
-function buildCells() {  
-  let cellWidthHeightValue = +cells.dataset.width + +cells.dataset.margin * 2; 
-  let elementsInRow =  Math.floor(+cells.offsetWidth / cellWidthHeightValue);
-  let elementsInColumn =  Math.floor(+cells.offsetHeight / cellWidthHeightValue); 
-  let allCellNumber = elementsInRow * elementsInColumn; 
+function buildCells() {
+  const width = +cells.dataset.width || 100;
+  const height = +cells.dataset.height || 100;
+  const margin = +cells.dataset.margin || 5;
+  const cellWidthHeightValue = width + margin * 2;
+  const elementsInRow =  Math.floor(+cells.offsetWidth / cellWidthHeightValue);
+  const elementsInColumn =  Math.floor(+cells.offsetHeight / cellWidthHeightValue);
+  const allCellNumber = elementsInRow * elementsInColumn;
 
   let count = 0;
-  arr = [];
-  arr.push([]);
+  arr = [[]];
   let placeInArr = arr[0];
 
-  for (let i = 0; i < allCellNumber; i++) {    
-    let newDiv = document.createElement(`div`);
-    newDiv.classList.add(`cells__cell`);
+  for (let i = 0; i < allCellNumber; i++) {
+    const newDiv = document.createElement('div');
+    newDiv.classList.add('cells__cell');
+    newDiv.style.width = `${width}px`;
+    newDiv.style.height = `${height}px`;
+    newDiv.style.margin = `${margin}px`;
     cells.appendChild(newDiv);
-    
+
     if (count < elementsInRow) {
       placeInArr.push(newDiv);
       count++;
@@ -66,7 +71,7 @@ function buildCells() {
       arr.push([]);
       placeInArr = arr[arr.length - 1];
       placeInArr.push(newDiv);
-      count++;      
+      count++;
     }
   }
 
@@ -74,44 +79,43 @@ function buildCells() {
     elements.forEach(elem => elem.classList.add(randomClass(arr)));
 
     function randomClass(arr) {
-      let min = 0,
+      const min = 0,
        max = arr.length - 1;
-           
-      return arr[Math.round(min - 0.5 + Math.random() * (max - min + 1))];    
-    }  
+
+      return arr[Math.round(min - 0.5 + Math.random() * (max - min + 1))];
+    }
   }
 
-  addRandomClass(document.querySelectorAll(`.cells__cell`), [charlizard, pikachu, squirtle, pidgey]);
+  addRandomClass(document.querySelectorAll('.cells__cell'), [classNameFirstCell, classNameSecondCell, classNameThirdCell, classNameFourthCell]);
 }
 
 buildCells();
 
-window.addEventListener(`resize`, () => {
-  document.querySelectorAll(`.cells__cell`).forEach(elem => elem.remove());
+window.addEventListener('resize', () => {
+  document.querySelectorAll('.cells__cell').forEach(elem => elem.remove());
   buildCells();
 });
 
-cells.addEventListener(`mouseover`, () => showHightlights(event.target));
+cells.addEventListener('mouseover', (event) => showHightlights(event.target));
 
 
-cells.addEventListener(`mouseout`, () => {
-  document.querySelectorAll(`.${hightlight}`).forEach( elem => elem.classList.remove(hightlight));
+cells.addEventListener('mouseout', () => {
+  document.querySelectorAll(`.${classNameHightlight}`).forEach( elem => elem.classList.remove(classNameHightlight));
 });
 
-cells.addEventListener(`click`, () => {
-  document.querySelectorAll(`.${hightlight}`).forEach( elem => elem.remove()); 
-  
-  let cellWidthHeightValue = +cells.dataset.width + +cells.dataset.margin * 2; 
-  let elementsInRow =  Math.floor(+cells.offsetWidth / cellWidthHeightValue);
-  let elementsInColumn =  Math.floor(+cells.offsetHeight / cellWidthHeightValue);
-  let allCellNumber = document.querySelectorAll(`.cells__cell`); 
+cells.addEventListener('click', () => {
+  document.querySelectorAll(`.${classNameHightlight}`).forEach( elem => elem.remove());
+
+  const cellWidthHeightValue = +cells.dataset.width + +cells.dataset.margin * 2;
+  const elementsInRow =  Math.floor(+cells.offsetWidth / cellWidthHeightValue);
+  const elementsInColumn =  Math.floor(+cells.offsetHeight / cellWidthHeightValue);
+  const allCellNumber = document.querySelectorAll('.cells__cell');
 
   let count = 0;
-  arr = [];
-  arr.push([]);
+  arr = [[]];
   let placeInArr = arr[0];
 
-  for (let i = 0; i < allCellNumber.length; i++) {    
+  for (let i = 0; i < allCellNumber.length; i++) {
     if (count < elementsInRow) {
       placeInArr.push(allCellNumber[i]);
       count++;
@@ -120,10 +124,9 @@ cells.addEventListener(`click`, () => {
       arr.push([]);
       placeInArr = arr[arr.length - 1];
       placeInArr.push(allCellNumber[i]);
-      count++;      
+      count++;
     }
   }
-  
 });
 
 

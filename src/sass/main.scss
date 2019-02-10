@@ -9,19 +9,16 @@
   height: 100vh;
   display: flex;
   flex-wrap: wrap;
-  justify-content: right; 
+  justify-content: left; 
   align-items: center;  
   align-content: center;
 
-  &__cell {
-    width: 100px;
-    height: 100px;
-    margin: 6px;
+  &__cell {    
     box-shadow: 2px 3px 8px 0px rgba(0,0,0,0.63);
     background: #777777;
     background-position: center;
     background-size: contain;
-    transition: 0.5s;
+    transition: 0.2s;
     border-radius: 50px;    
 
     &:hover {

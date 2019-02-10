@@ -15,10 +15,10 @@
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  -webkit-box-pack: right;
-  -webkit-justify-content: right;
-  -ms-flex-pack: right;
-  justify-content: right;
+  -webkit-box-pack: left;
+  -webkit-justify-content: left;
+  -ms-flex-pack: left;
+  justify-content: left;
   -webkit-box-align: center;
   -webkit-align-items: center;
   -ms-flex-align: center;
@@ -29,18 +29,15 @@
 }
 
 .cells__cell {
-  width: 100px;
-  height: 100px;
-  margin: 6px;
   -webkit-box-shadow: 2px 3px 8px 0px rgba(0, 0, 0, 0.63);
   box-shadow: 2px 3px 8px 0px rgba(0, 0, 0, 0.63);
   background: #777777;
   background-position: center;
   -webkit-background-size: contain;
   background-size: contain;
-  -webkit-transition: 0.5s;
-  -o-transition: 0.5s;
-  transition: 0.5s;
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
   -webkit-border-radius: 50px;
   border-radius: 50px;
 }
